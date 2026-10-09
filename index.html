@@ -86,7 +86,28 @@ body{
 }
 .mago img{
   height:100%;width:auto;display:block;
-  filter:drop-shadow(0 18px 24px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(245,197,24,.28));
+  /* el halo blanco en capas disimula el borde del recorte */
+  filter:
+    drop-shadow(0 0 1px rgba(255,255,255,.95))
+    drop-shadow(0 0 4px rgba(255,255,255,.85))
+    drop-shadow(0 0 12px rgba(255,255,255,.5))
+    drop-shadow(0 0 30px rgba(245,197,24,.35))
+    drop-shadow(0 18px 24px rgba(0,0,0,.7));
+  animation:aura 3.4s ease-in-out infinite;
+}
+@keyframes aura{
+  0%,100%{filter:
+    drop-shadow(0 0 1px rgba(255,255,255,.95))
+    drop-shadow(0 0 4px rgba(255,255,255,.8))
+    drop-shadow(0 0 12px rgba(255,255,255,.42))
+    drop-shadow(0 0 28px rgba(245,197,24,.3))
+    drop-shadow(0 18px 24px rgba(0,0,0,.7))}
+  50%{filter:
+    drop-shadow(0 0 1px rgba(255,255,255,1))
+    drop-shadow(0 0 6px rgba(255,255,255,.95))
+    drop-shadow(0 0 18px rgba(255,255,255,.6))
+    drop-shadow(0 0 38px rgba(245,197,24,.45))
+    drop-shadow(0 18px 24px rgba(0,0,0,.7))}
 }
 @keyframes entrarMago{from{opacity:0;transform:translateY(60px) scale(.85)}to{opacity:1;transform:none}}
 @keyframes respirar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
